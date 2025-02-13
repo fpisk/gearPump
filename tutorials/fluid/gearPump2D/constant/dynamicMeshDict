@@ -30,11 +30,11 @@ mover
     origin        (0 0 0);
     axis          (0 0 1);
 
-    omega         200;
+    omega         20 [rpm];
 }
 
 
-
+/*
 mover
 {
     type            motionSolver;
@@ -50,11 +50,9 @@ mover
     origin        (0 0 0);
     axis          (0 0 1);
 
-    omega         -200;
+    omega         -20 [rpm]
 }
-
-
-
+*/
 
 topoChanger
 {
