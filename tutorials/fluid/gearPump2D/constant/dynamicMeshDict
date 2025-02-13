@@ -33,9 +33,7 @@ mover
     omega         20 [rpm];
 }
 
-
-/*
-mover
+mover2
 {
     type            motionSolver;
 
@@ -52,7 +50,6 @@ mover
 
     omega         -20 [rpm]
 }
-*/
 
 topoChanger
 {
