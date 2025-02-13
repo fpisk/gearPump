@@ -7,9 +7,9 @@
 \*---------------------------------------------------------------------------*/
 FoamFile
 {
-    format      binary;
+    format      ascii;
     class       polyBoundaryMesh;
-    location    "0.1/polyMesh";
+    location    "constant/polyMesh";
     object      boundary;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
