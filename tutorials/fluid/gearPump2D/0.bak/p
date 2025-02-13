@@ -14,95 +14,38 @@ FoamFile
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
+
+#include "${FOAM_CASE}/constant/caseSettings"
+
+pOut 0.2;
+
 dimensions      [1 -1 -2 0 0 0 0];
 
-internalField   uniform 1 [bar];
+internalField   uniform 0.0;
 
 boundaryField
 {
     #includeEtc "caseDicts/setConstraintTypes"
 
-    inlet
+   inlet
     {
-        type            uniformTotalPressure;
-        p0
-        {
-            type            table;
-            format          csv;
-            file            "constant/expData/pInlet";
-            nHeaderLine     2;          // Number of header lines
-            units           ([CAD] [bar]);
-            columns         (0 1);      // Column indices
-            separator       " ";        // Optional (defaults to ",")
-            mergeSeparators yes;        // Merge multiple separators
-            outOfBounds     repeat;     // For multi-cycle simulations, use repeat
-            interpolationScheme linear;
-        }
-        value           $internalField;
-        psi             psi;
-        rho             rho;
-        gamma           1.4;
+        type            fixedValue;
+        value           uniform 0;
     }
-
     outlet
     {
-        type            uniformTotalPressure;
-        p0
-        {
-            type            table;
-            units           ([CAD] [bar]);
-            values
-            (
-                (0      1.0)
-                (100    1.0)
-                (240    1.7)
-                (380    1.0)
-                (720    1.0)
-            );
-            outOfBounds     repeat;     // For multi-cycle simulations, use repeat
-            interpolationScheme linear;
-        }
-        value           $internalField;
+        type            uniformTotalPressure;      
+        value           $pOut;
         psi             psi;
         rho             rho;
-        gamma           1.4;
+        gamma           1.4; 
     }
-
-    piston
+    
+    walls
     {
         type            zeroGradient;
     }
-
-    liner
-    {
-        type            zeroGradient;
-    }
-
-    cylinderHead
-    {
-        type            zeroGradient;
-    }
-
-    ivHead
-    {
-        type            zeroGradient;
-    }
-
-    evHead
-    {
-        type            zeroGradient;
-    }
-
-    ivStem
-    {
-        type            zeroGradient;
-    }
-
-    evStem
-    {
-        type            zeroGradient;
-    }
-
+ 
     frontAndBack
     {
         type            empty;

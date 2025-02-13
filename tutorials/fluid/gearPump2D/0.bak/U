@@ -34,41 +34,7 @@ boundaryField
         value           uniform (0 0 0);
     }
 
-    piston
-    {
-        type            movingWallVelocity;
-        value           uniform (0 0 0);
-    }
-
-    liner
-    {
-        type            noSlip;
-    }
-
-    cylinderHead
-    {
-        type            noSlip;
-    }
-
-    ivHead
-    {
-        type            movingWallVelocity;
-        value           uniform (0 0 0);
-    }
-
-    ivStem
-    {
-        type            movingWallVelocity;
-        value           uniform (0 0 0);
-    }
-
-    evHead
-    {
-        type            movingWallVelocity;
-        value           uniform (0 0 0);
-    }
-
-    evStem
+    "(gear.*)"
     {
         type            movingWallVelocity;
         value           uniform (0 0 0);

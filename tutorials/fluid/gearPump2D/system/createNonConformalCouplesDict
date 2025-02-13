@@ -18,30 +18,23 @@ fields no;
 
 nonConformalCouples
 {
-    NCC_iv
+    NCC_interf
     {
-        patches         (nonCouple_iv_cyl nonCouple_cyl_iv);
+        patches         (interface1PatchAMI interface2PatchAMI);
         transform       none;
     }
 
-    NCC_ev
+    NCC_circ_1
     {
-        patches         (nonCouple_ev_cyl nonCouple_cyl_ev);
+        patches         (circ1PatchAMI circ1OuterPatchAMI);
         transform       none;
     }
 
-    NCC_iv_port
+    NCC_circ_2
     {
-        patches         (nonCouple_ip_iv nonCouple_iv_ip);
+        patches         (circ2PatchAMI circ2OuterPatchAMI);
         transform       none;
     }
-
-    NCC_ev_port
-    {
-        patches         (nonCouple_ep_ev nonCouple_ev_ep);
-        transform       none;
-    }
-
 }
 
 // ************************************************************************* //

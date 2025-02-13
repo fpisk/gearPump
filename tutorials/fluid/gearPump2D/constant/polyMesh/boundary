@@ -1,0 +1,103 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  dev                                   |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       polyBoundaryMesh;
+    object      boundary;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+12
+(
+    frontAndBack
+    {
+        type            empty;
+        inGroups        1(empty);
+        nFaces          583200;
+        startFace       577756;
+    }
+    inlet
+    {
+        type            patch;
+        nFaces          200;
+        startFace       1160956;
+    }
+    outlet
+    {
+        type            patch;
+        nFaces          160;
+        startFace       1161156;
+    }
+    walls
+    {
+        type            wall;
+        inGroups        1(wall);
+        nFaces          2000;
+        startFace       1161316;
+    }
+    circ1PatchAMI
+    {
+        type            wall;
+        inGroups        1(wall);
+        nFaces          1443;
+        startFace       1163316;
+    }
+    interface1PatchAMI
+    {
+        type            wall;
+        inGroups        1(wall);
+        nFaces          307;
+        startFace       1164759;
+    }
+    circ2PatchAMI
+    {
+        type            wall;
+        inGroups        1(wall);
+        nFaces          1437;
+        startFace       1165066;
+    }
+    interface2PatchAMI
+    {
+        type            wall;
+        inGroups        1(wall);
+        nFaces          313;
+        startFace       1166503;
+    }
+    circ1OuterPatchAMI
+    {
+        type            wall;
+        inGroups        1(wall);
+        nFaces          780;
+        startFace       1166816;
+    }
+    circ2OuterPatchAMI
+    {
+        type            wall;
+        inGroups        1(wall);
+        nFaces          780;
+        startFace       1167596;
+    }
+    gear1Wall
+    {
+        type            wall;
+        inGroups        1(wall);
+        nFaces          1750;
+        startFace       1168376;
+    }
+    gear2Wall
+    {
+        type            wall;
+        inGroups        1(wall);
+        nFaces          1750;
+        startFace       1170126;
+    }
+)
+
+// ************************************************************************* //
