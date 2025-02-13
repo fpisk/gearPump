@@ -43,8 +43,9 @@ topoChanger
     (
         #include "$FOAM_CASE/constant/meshTimes"
     );
-
-    repeat          0.1;
+    
+    begin           0;
+    cycle           0.1;
     timeDelta       5e-4;
 }
 
