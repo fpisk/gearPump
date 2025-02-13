@@ -19,26 +19,27 @@ actions
 (
     {
         name    gearCellsA;
-        type    cellSet;     
+        type    cellZoneSet;     
         action  new;         
         source  regionToCell; 
         sourceInfo
         {
-            insidePoints 
-            regionName ?;
+            insidePoints ((0 0.076 0.0005)); 
         }
     }
 
-    // {
-    //     name    gearCellsA;
-    //     type    cellSet;     
-    //     action  new;         
-    //     source  regionToCell; 
-    //     sourceInfo
-    //     {
-    //         regionName gearA;
-    //     }
-    // }
+    {
+        name    gearCellsB;
+        type    cellZoneSet;     
+        action  new;         
+        source  regionToCell; 
+        sourceInfo
+        {
+            insidePoints ((0.01 -0.025 0.0005)); 
+        }
+    }
+    
+    
 );
 
 
