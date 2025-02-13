@@ -14,8 +14,7 @@ FoamFile
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-
-mover
+gearA
 {
     type            motionSolver;
 
@@ -30,10 +29,10 @@ mover
     origin        (0 0 0);
     axis          (0 0 1);
 
-    omega         20 [rpm];
+    omega         200;
 }
 
-mover2
+gearB
 {
     type            motionSolver;
 
@@ -41,15 +40,16 @@ mover2
 
     motionSolver    solidBody;
 
-    cellZone        gearCellsB;
+    cellZone        gearCellsA; 
 
     solidBodyMotionFunction  rotatingMotion;
 
     origin        (0 0 0);
     axis          (0 0 1);
 
-    omega         -20 [rpm]
+    omega          200;
 }
+
 
 topoChanger
 {
@@ -63,7 +63,7 @@ topoChanger
     );
 
     repeat          0.1;
-    timeDelta       0.1;
+    timeDelta       5e-4;
 }
 
 // ************************************************************************* //
