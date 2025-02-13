@@ -8,44 +8,43 @@
 FoamFile
 {
     format      ascii;
-    class       dictionary;
-    location    "constant";
-    object      dynamicMeshDict;
+    class       volScalarField;
+    location    "0";
+    object      p;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-mover
+
+
+dimensions      [ 1 -1 -2 0 0 0 0 ];
+
+internalField   uniform 0;
+
+boundaryField
 {
-    type            motionSolver;
 
-    libs            ("libfvMotionSolvers.so");
+    #includeEtc "caseDicts/setConstraintTypes"
 
-    motionSolver    solidBody;
+    inlet
+    {
+        type            totalPressure;
+        p0              uniform 0;
+    }
 
-    cellZone        gearCells;
+    outlet
+    {
+        type            zeroGradient;
+    }
 
-    solidBodyMotionFunction  rotatingMotion;
+    wall
+    {
+        type            zeroGradient;
+    }
 
-    origin        (0 0 0);
-    axis          (0 0 1);
-
-    omega         200;
-}
-
-
-topoChanger
-{
-    type    meshToMesh;
-
-    libs    ("libmeshToMeshTopoChanger.so");
-
-    times
-    (
-        #include "$FOAM_CASE/constant/meshTimes"
-    );
-
-    repeat          0.1;
-    timeDelta       5e-4;
+    "NCC.*"
+    {
+        type            zeroGradient;
+    }
 }
 
 // ************************************************************************* //
