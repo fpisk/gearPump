@@ -1,0 +1,217 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  12
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    format      ascii;
+    class       polyBoundaryMesh;
+    location    "constant/polyMesh";
+    object      boundary;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+24
+(
+    frontAndBack
+    {
+        type            empty;
+        inGroups        List<word> 1(empty);
+        nFaces          583200;
+        startFace       577756;
+    }
+    inlet
+    {
+        type            patch;
+        nFaces          200;
+        startFace       1160956;
+    }
+    outlet
+    {
+        type            patch;
+        nFaces          160;
+        startFace       1161156;
+    }
+    walls
+    {
+        type            wall;
+        inGroups        List<word> 1(wall);
+        nFaces          2000;
+        startFace       1161316;
+    }
+    circ1PatchAMI
+    {
+        type            wall;
+        inGroups        List<word> 1(wall);
+        nFaces          1442;
+        startFace       1163316;
+    }
+    interface1PatchAMI
+    {
+        type            wall;
+        inGroups        List<word> 1(wall);
+        nFaces          308;
+        startFace       1164758;
+    }
+    circ2PatchAMI
+    {
+        type            wall;
+        inGroups        List<word> 1(wall);
+        nFaces          1405;
+        startFace       1165066;
+    }
+    interface2PatchAMI
+    {
+        type            wall;
+        inGroups        List<word> 1(wall);
+        nFaces          345;
+        startFace       1166471;
+    }
+    circ1OuterPatchAMI
+    {
+        type            wall;
+        inGroups        List<word> 1(wall);
+        nFaces          780;
+        startFace       1166816;
+    }
+    circ2OuterPatchAMI
+    {
+        type            wall;
+        inGroups        List<word> 1(wall);
+        nFaces          780;
+        startFace       1167596;
+    }
+    gear1Wall
+    {
+        type            wall;
+        inGroups        List<word> 1(wall);
+        nFaces          1750;
+        startFace       1168376;
+    }
+    gear2Wall
+    {
+        type            wall;
+        inGroups        List<word> 1(wall);
+        nFaces          1750;
+        startFace       1170126;
+    }
+    NCC_interf_on_interface1PatchAMI
+    {
+        type            nonConformalCyclic;
+        inGroups        List<word> 1(nonConformalCyclic);
+        nFaces          0;
+        startFace       1171876;
+        matchTolerance  0.0001;
+        neighbourPatch  NCC_interf_on_interface2PatchAMI;
+        transformType   none;
+        originalPatch   interface1PatchAMI;
+    }
+    NCC_interf_on_interface2PatchAMI
+    {
+        type            nonConformalCyclic;
+        inGroups        List<word> 1(nonConformalCyclic);
+        nFaces          0;
+        startFace       1171876;
+        matchTolerance  0.0001;
+        neighbourPatch  NCC_interf_on_interface1PatchAMI;
+        transformType   none;
+        originalPatch   interface2PatchAMI;
+    }
+    NCC_circ_1_on_circ1PatchAMI
+    {
+        type            nonConformalCyclic;
+        inGroups        List<word> 1(nonConformalCyclic);
+        nFaces          0;
+        startFace       1171876;
+        matchTolerance  0.0001;
+        neighbourPatch  NCC_circ_1_on_circ1OuterPatchAMI;
+        transformType   none;
+        originalPatch   circ1PatchAMI;
+    }
+    NCC_circ_1_on_circ1OuterPatchAMI
+    {
+        type            nonConformalCyclic;
+        inGroups        List<word> 1(nonConformalCyclic);
+        nFaces          0;
+        startFace       1171876;
+        matchTolerance  0.0001;
+        neighbourPatch  NCC_circ_1_on_circ1PatchAMI;
+        transformType   none;
+        originalPatch   circ1OuterPatchAMI;
+    }
+    NCC_circ_2_on_circ2PatchAMI
+    {
+        type            nonConformalCyclic;
+        inGroups        List<word> 1(nonConformalCyclic);
+        nFaces          0;
+        startFace       1171876;
+        matchTolerance  0.0001;
+        neighbourPatch  NCC_circ_2_on_circ2OuterPatchAMI;
+        transformType   none;
+        originalPatch   circ2PatchAMI;
+    }
+    NCC_circ_2_on_circ2OuterPatchAMI
+    {
+        type            nonConformalCyclic;
+        inGroups        List<word> 1(nonConformalCyclic);
+        nFaces          0;
+        startFace       1171876;
+        matchTolerance  0.0001;
+        neighbourPatch  NCC_circ_2_on_circ2PatchAMI;
+        transformType   none;
+        originalPatch   circ2OuterPatchAMI;
+    }
+    nonConformalError_on_interface1PatchAMI
+    {
+        type            nonConformalError;
+        inGroups        List<word> 1(nonConformalError);
+        nFaces          0;
+        startFace       1171876;
+        originalPatch   interface1PatchAMI;
+    }
+    nonConformalError_on_interface2PatchAMI
+    {
+        type            nonConformalError;
+        inGroups        List<word> 1(nonConformalError);
+        nFaces          0;
+        startFace       1171876;
+        originalPatch   interface2PatchAMI;
+    }
+    nonConformalError_on_circ1PatchAMI
+    {
+        type            nonConformalError;
+        inGroups        List<word> 1(nonConformalError);
+        nFaces          0;
+        startFace       1171876;
+        originalPatch   circ1PatchAMI;
+    }
+    nonConformalError_on_circ1OuterPatchAMI
+    {
+        type            nonConformalError;
+        inGroups        List<word> 1(nonConformalError);
+        nFaces          0;
+        startFace       1171876;
+        originalPatch   circ1OuterPatchAMI;
+    }
+    nonConformalError_on_circ2PatchAMI
+    {
+        type            nonConformalError;
+        inGroups        List<word> 1(nonConformalError);
+        nFaces          0;
+        startFace       1171876;
+        originalPatch   circ2PatchAMI;
+    }
+    nonConformalError_on_circ2OuterPatchAMI
+    {
+        type            nonConformalError;
+        inGroups        List<word> 1(nonConformalError);
+        nFaces          0;
+        startFace       1171876;
+        originalPatch   circ2OuterPatchAMI;
+    }
+)
+
+// ************************************************************************* //

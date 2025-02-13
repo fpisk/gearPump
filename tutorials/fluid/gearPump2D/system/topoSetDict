@@ -1,0 +1,34 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  12
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    format      ascii;
+    class       dictionary;
+    object      topoSetDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+actions
+(
+    {
+        name    gearCells;
+        type    cellZoneSet;     
+        action  new;         
+        source  regionToCell; 
+        sourceInfo
+        {
+            insidePoints
+            (
+                (0 0.076 0.0005)
+                (0.01 -0.025 0.0005)
+            ); 
+        }
+    }    
+);
+
+// ************************************************************************* //
