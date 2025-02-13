@@ -27,21 +27,22 @@ boundaryField
 {
     #includeEtc "caseDicts/setConstraintTypes"
 
-   inlet
+    inlet
     {
         type            fixedValue;
         value           uniform 0;
     }
     outlet
     {
-        type            uniformTotalPressure;      
-        value           $pOut;
+        type            totalPressure;      
+        p0              uniform 20000;
+        value           uniform 20000;
         psi             psi;
         rho             rho;
         gamma           1.4; 
     }
     
-    walls
+    wall
     {
         type            zeroGradient;
     }
