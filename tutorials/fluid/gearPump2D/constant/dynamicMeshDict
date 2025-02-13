@@ -23,15 +23,37 @@ mover
 
     motionSolver    solidBody;
 
-    cellZone        rotating;
+    cellZone        gearCellsA;
 
     solidBodyMotionFunction  rotatingMotion;
 
     origin        (0 0 0);
-    axis          (1 0 0);
+    axis          (0 0 1);
 
-    omega         60 [rpm];
+    omega         200;
 }
+
+
+
+mover
+{
+    type            motionSolver;
+
+    libs            ("libfvMotionSolvers.so");
+
+    motionSolver    solidBody;
+
+    cellZone        gearCellsB;
+
+    solidBodyMotionFunction  rotatingMotion;
+
+    origin        (0 0 0);
+    axis          (0 0 1);
+
+    omega         -200;
+}
+
+
 
 
 topoChanger
