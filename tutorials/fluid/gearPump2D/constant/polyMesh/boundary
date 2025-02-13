@@ -46,29 +46,29 @@ FoamFile
     {
         type            wall;
         inGroups        List<word> 1(wall);
-        nFaces          1438;
+        nFaces          1443;
         startFace       1163316;
     }
     interface1PatchAMI
     {
         type            wall;
         inGroups        List<word> 1(wall);
-        nFaces          312;
-        startFace       1164754;
+        nFaces          307;
+        startFace       1164759;
     }
     circ2PatchAMI
     {
         type            wall;
         inGroups        List<word> 1(wall);
-        nFaces          1384;
+        nFaces          1437;
         startFace       1165066;
     }
     interface2PatchAMI
     {
         type            wall;
         inGroups        List<word> 1(wall);
-        nFaces          366;
-        startFace       1166450;
+        nFaces          313;
+        startFace       1166503;
     }
     circ1OuterPatchAMI
     {
