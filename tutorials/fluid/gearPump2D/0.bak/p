@@ -14,19 +14,66 @@ FoamFile
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
+pOut            0.2;
 
-#include "${FOAM_CASE}/constant/caseSettings"
+dimensions      [ 1 -1 -2 0 0 0 0 ];
 
-pOut 0.2;
-
-dimensions      [1 -1 -2 0 0 0 0];
-
-internalField   uniform 0.0;
+internalField   uniform 0;
 
 boundaryField
 {
-    #includeEtc "caseDicts/setConstraintTypes"
-
+    cyclic
+    {
+        type            cyclic;
+    }
+    cyclicSlip
+    {
+        type            cyclicSlip;
+    }
+    nonConformalCyclic
+    {
+        type            nonConformalCyclic;
+        value           uniform 0;
+    }
+    nonConformalError
+    {
+        type            nonConformalError;
+    }
+    empty
+    {
+        type            empty;
+    }
+    processor
+    {
+        type            processor;
+        value           uniform 0;
+    }
+    processorCyclic
+    {
+        type            processorCyclic;
+        value           uniform 0;
+    }
+    nonConformalProcessorCyclic
+    {
+        type            nonConformalProcessorCyclic;
+        value           uniform 0;
+    }
+    symmetryPlane
+    {
+        type            symmetryPlane;
+    }
+    symmetry
+    {
+        type            symmetry;
+    }
+    wedge
+    {
+        type            wedge;
+    }
+    internal
+    {
+        type            internal;
+    }
     inlet
     {
         type            fixedValue;
@@ -34,24 +81,21 @@ boundaryField
     }
     outlet
     {
-        type            totalPressure;      
+        type            totalPressure;
         p0              uniform 20000;
         value           uniform 20000;
         psi             psi;
         rho             rho;
-        gamma           1.4; 
+        gamma           1.4;
     }
-    
     wall
     {
         type            zeroGradient;
     }
- 
     frontAndBack
     {
         type            empty;
     }
-
     "nonCouple.*"
     {
         type            zeroGradient;
