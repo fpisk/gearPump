@@ -113,14 +113,14 @@ int main()
     // PARAMETRI DA MODIFICARE
 
     ifstream DatiRuota;
-    DatiRuota.open("DatiRuota");
+    DatiRuota.open("gearsGenDict");
     cerr <<" ---------------------------------------- "<< endl;
     cerr <<" ----- Gear profile Generation tool ----- "<< endl;
     cerr <<" ---------------------------------------- "<< endl;
     cerr <<" DATI RUOTA "<< endl;
 
     DatiRuota >> z1_;
-    cerr <<"numero di denti [] = "<< z1_ << endl;
+    cerr <<" numero di denti [] = "<< z1_ << endl;
     z2_=z1_;
     DatiRuota >> mn;
     cerr <<" modulo normale [mm] = "<< mn << endl;

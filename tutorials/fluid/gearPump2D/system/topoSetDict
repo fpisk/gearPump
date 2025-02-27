@@ -16,7 +16,7 @@ FoamFile
 actions
 (
     {
-        name    gearCells;
+        name    gearCellsA;
         type    cellZoneSet;     
         action  new;         
         source  regionToCell; 
@@ -25,10 +25,25 @@ actions
             insidePoints
             (
                 (0 0.076 0.0005)
+            ); 
+        }
+    }    
+
+    {
+        name    gearCellsB;
+        type    cellZoneSet;     
+        action  new;         
+        source  regionToCell; 
+        sourceInfo
+        {
+            insidePoints
+            (
                 (0.01 -0.025 0.0005)
             ); 
         }
     }    
+
+
 );
 
 // ************************************************************************* //

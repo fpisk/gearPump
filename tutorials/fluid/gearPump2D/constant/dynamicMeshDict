@@ -14,7 +14,7 @@ FoamFile
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-mover
+mover1
 {
     type            motionSolver;
 
@@ -22,7 +22,7 @@ mover
 
     motionSolver    solidBody;
 
-    cellZone        gearCells;
+    cellZone        gearCellsA;
 
     solidBodyMotionFunction  rotatingMotion;
 
@@ -31,6 +31,26 @@ mover
 
     omega         200;
 }
+
+mover2
+{
+    type            motionSolver;
+
+    libs            ("libfvMotionSolvers.so");
+
+    motionSolver    solidBody;
+
+    cellZone        gearCellsB;
+
+    solidBodyMotionFunction  rotatingMotion;
+
+    origin        (0 0 0);
+    axis          (0 0 1);
+
+    omega         -200;
+}
+
+
 
 
 topoChanger
