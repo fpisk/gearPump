@@ -10,25 +10,34 @@ using namespace std;
 double xr(double qr, double umin, double lx, double ly, double rt, double rb, double rp, double q0, double u_b, double V, double qrmax, double qamin)
 {
     double pi, firQMax, XrVQMax, YrVQMax, RotR, XaQMax, RotA, RotRA, fir, xr, xrv, yrv, YaQMax;
+
     pi=atan(1)*4;
-    firQMax=1/rp*((-lx+rt*sin(qrmax))/cos(u_b/180*pi)+(V-ly-rt*cos(qrmax))*tan(qrmax)*cos(u_b/180*pi));
+
+    firQMax = 1/rp*((-lx+rt*sin(qrmax))/cos(u_b/180*pi)+(V-ly-rt*cos(qrmax))*tan(qrmax)*cos(u_b/180*pi));
+
     XrVQMax=cos(firQMax)*(-lx+rt*sin(qrmax))/cos(u_b/180*pi)+sin(firQMax)*(-ly-rt*cos(qrmax))+sin(firQMax)*rp+sin(firQMax)*V-rp*firQMax*cos(firQMax);
+    
     YrVQMax=-sin(firQMax)*(-lx+rt*sin(qrmax))/cos(u_b/180*pi)+cos(firQMax)*(-ly-rt*cos(qrmax))+cos(firQMax)*rp+cos(firQMax)*V+rp*firQMax *sin(firQMax);
+
     RotR=(abs(YrVQMax)/(YrVQMax))*atan(abs(YrVQMax/XrVQMax));
 
     if (XrVQMax<0) RotR=pi-RotR;
 
     XaQMax=rb*sin(qamin+q0)-rb*qamin*cos(qamin+q0);
+
     YaQMax=rb*cos(qamin+q0)+rb*qamin*sin(qamin+q0);
 
 
     RotA= (abs(YaQMax)/(YaQMax))*atan(abs(YaQMax/XaQMax));
+
     if (XaQMax<0) RotA=pi-RotA;
 
     RotRA=RotA-RotR;
 
     fir=1/rp*((-lx+rt*sin(qr))/cos(u_b/180*pi)+(V-ly-rt*cos(qr))*tan(qr)*cos(u_b/180*pi));
+
     xrv=cos(fir)*(-lx+rt*sin(qr))/cos(u_b/180*pi)+sin(fir)*(-ly-rt*cos(qr))+sin(fir)*rp+sin(fir)*V-rp*fir*cos(fir);
+
     yrv=-sin(fir)*(-lx+rt*sin(qr))/cos(u_b/180*pi)+cos(fir)*(-ly-rt*cos(qr))+cos(fir)*rp+cos(fir)*V+rp*fir*sin(fir);
 
     xr=xrv*cos(RotRA)-yrv*sin(RotRA);
@@ -37,7 +46,21 @@ double xr(double qr, double umin, double lx, double ly, double rt, double rb, do
 }
 
 
-double yr(double qr, double umin,double lx, double ly, double rt, double rb, double rp, double q0, double u_b, double V, double qrmax, double qamin)
+double yr
+(
+    double qr,
+    double umin,
+    double lx,
+    double ly,
+    double rt,
+    double rb,
+    double rp,
+    double q0,
+    double u_b,
+    double V,
+    double qrmax,
+    double qamin
+)
 {
     double pi, firQMax, XrVQMax, YrVQMax, RotR, XaQMax, YaQMax, RotA, fir, xrv, yr, yrv, RotRA;
     pi=atan(1)*4;
@@ -70,17 +93,52 @@ double yr(double qr, double umin,double lx, double ly, double rt, double rb, dou
 
 
 
-double xrs(double qr, double umin, double lx, double ly, double rt, double rb, double rp, double q0, double u_b, double V, double qrmax, double qamin, int z)
+double xrs
+(
+    double qr,
+    double umin,
+    double lx,
+    double ly,
+    double rt,
+    double rb,
+    double rp,
+    double q0,
+    double u_b,
+    double V,
+    double qrmax,
+    double qamin,
+    int z
+)
 { 
     double pi, xrv, yrv, xrs;
+
     xrv=xr(qr, umin, lx, ly, rt, rb, rp, q0, u_b, V, qrmax, qamin);
+
     yrv=yr(qr, umin, lx, ly, rt, rb, rp, q0, u_b, V, qrmax, qamin);
+
     pi=atan(1)*4;
+
     xrs=xrv*cos(pi/z)-yrv*sin(pi/z);
+
     return xrs;
 }
 
-double yrs(double qr, double umin, double lx, double ly, double rt, double rb, double rp, double q0, double u_b, double V, double qrmax, double qamin, int z)
+double yrs
+(
+    double qr,
+    double umin,
+    double lx,
+    double ly,
+    double rt,
+    double rb,
+    double rp,
+    double q0,
+    double u_b,
+    double V,
+    double qrmax,
+    double qamin,
+    int z
+)
 {
     double pi, xrv, yrv, yrs;
     xrv=xr(qr,umin,lx,ly,rt,rb,rp,q0,u_b,V,qrmax,qamin);
