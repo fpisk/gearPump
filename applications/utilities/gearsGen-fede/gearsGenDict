@@ -1,0 +1,39 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  12
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    format      ascii;
+    class       dictionary;
+    location    "system";
+    object      gearsGenDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+ 
+numberTeeth 23;
+
+normalModule 4;
+
+normalPressureAngle 20
+ 
+helixAngle 0;
+
+normalBacklashContribution 0.1;
+
+addendumCoeffCutter 1.25;
+
+dedendumCoeffCutter 1.51511;
+
+effectiveFaceWidth 20;
+ 
+operatingCenterDistance 91.5;
+
+coeffUnderZeroBacklash -0.2;
+
+tipChamfer 0;
+
+// ************************************************************************* //
