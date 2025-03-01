@@ -146,11 +146,21 @@ int main(int argc, char *argv[])
             false
         )
     );
-    
-    // wrrites output
-    const word outputName("solids");
-    OFstream str(outputName);
 
+    
+    // write points
+    fileName fName("points");
+    OFstream pts(fName);;
+
+    // profile
+    fName = "profile";
+    OFstream profile(fName);;
+
+    // solids
+    fName = "solids";
+    OFstream solids(fName);
+
+  
 
     
     Info<< nl
