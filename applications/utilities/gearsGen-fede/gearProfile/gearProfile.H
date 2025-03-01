@@ -35,6 +35,7 @@ SourceFiles
 #define gearProfile_H
 
 #include "dictionary.H"
+#include "meshTools.H"
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
@@ -60,48 +61,51 @@ class gearProfile
     // Private Data
 
         //- numberTeeth
-        const label z1_; 
-        const label z2_; 
-                
+        const label z1_;
+
+        // transmission ratio = z2/z1
+        const scalar transmissionRatio_;
+
         // normalModule
-	const label mn_; 
-	// normalPressureAngle [deg]
-	const scalar an;
+	const label mn_;
+
+        // normalPressureAngle [deg]
+	const scalar an_;
 
 	// helixAngle [deg]
-	const scalar b;   
+	const scalar b_;
 
-        // normalBacklashContribution [deg] 
-        const scalar jn1; 
-        
-        // addendumCoeffCutter 
-        const scalar ca1; 
-       
-        // dedendumCoeffCutter  
-        const scalar cd1; 
-        
-        // effectiveFaceWidth [mm] 
-        const scalar l1_ ; 
-       
-        // operatingCenterDistance [mm] 
-        const scalar adf; 
-        
-        // coeffUnderZeroBacklash [-] 
-        const scalar x1_; 
+        // normalBacklashContribution [deg]
+        const scalar jn1;
+
+        // addendumCoeffCutter
+        const scalar ca1;
+
+        // dedendumCoeffCutter
+        const scalar cd1;
+
+        // effectiveFaceWidth [mm]
+        const scalar l1_ ;
+
+        // operatingCenterDistance [mm]
+        const scalar adf;
+
+        // coeffUnderZeroBacklash [-]
+        const scalar x1_;
 
         // tipChamfer
-        const scalar s_1;  
-  
+        const scalar s_1;
+
 
     // Private Member Functions
-
+        void createProfile();
 
 public:
 
     // Static Data Members
 
         //- Static data staticData
- 
+
 
 
     // Constructors

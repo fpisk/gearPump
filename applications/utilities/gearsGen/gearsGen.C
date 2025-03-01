@@ -291,6 +291,8 @@ int main()
     // Coef. sp.to con gioco
     xg1=x1_-jn1/2/mn/sin(an/180*pi);
     xg2=x2_-jn2/2/mn/sin(an/180*pi);
+
+    cout<< "WARNING: uninitialized value of jn2, xg2=0 ALWAYS" << "\n";
     //cerr <<"Coef. sp.to con gioco 1 = "<< xg1 << " Coef. sp.to con gioco 2 = "<< xg2 << endl;
 
     // Numero denti virtuale
