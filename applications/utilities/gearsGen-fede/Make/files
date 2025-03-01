@@ -1,3 +1,4 @@
+gearProfile/gearProfile.C
 gearsGen-FEDE.C
 
 EXE = $(FOAM_USER_APPBIN)/gearsGen-Fede

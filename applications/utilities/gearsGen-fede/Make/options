@@ -1,8 +1,11 @@
 EXE_INC = \
+    -I./gearProfile \
     -I$(LIB_SRC)/mesh/blockMesh/lnInclude \
     -I$(LIB_SRC)/meshTools/lnInclude \
     -I$(LIB_SRC)/fileFormats/lnInclude \
     -I$(LIB_SRC)/polyTopoChange/lnInclude
+
+
 
 EXE_LIBS = \
     -lblockMesh \

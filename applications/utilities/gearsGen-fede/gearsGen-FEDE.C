@@ -27,8 +27,7 @@ License
 #include "Time.H"
 #include "IOdictionary.H"
 #include "OFstream.H"
-
-
+#include "gearProfile.H"
 
 #include "mathematicalConstants.H"
 
@@ -63,7 +62,7 @@ scalar xr
     // const scalar firQMax = 1.0/rp*((-lx+rt*sin(qrmax))/cos(u_b/180*pi)+(V-ly-rt*cos(qrmax))*tan(qrmax)*cos(u_b/180*pi));
 
     // XrVQMax=cos(firQMax)*(-lx+rt*sin(qrmax))/cos(u_b/180*pi)+sin(firQMax)*(-ly-rt*cos(qrmax))+sin(firQMax)*rp+sin(firQMax)*V-rp*firQMax*cos(firQMax);
-    
+
     // YrVQMax=-sin(firQMax)*(-lx+rt*sin(qrmax))/cos(u_b/180*pi)+cos(firQMax)*(-ly-rt*cos(qrmax))+cos(firQMax)*rp+cos(firQMax)*V+rp*firQMax *sin(firQMax);
 
     // RotR=(abs(YrVQMax)/(YrVQMax))*atan(abs(YrVQMax/XrVQMax));
@@ -96,10 +95,8 @@ scalar xr
 
 
 // Main program:
-
 int main(int argc, char *argv[])
 {
-
     argList::noParallel();
 
     argList::addOption
@@ -111,16 +108,13 @@ int main(int argc, char *argv[])
 
     argList args(argc, argv, false, true);
 
-
     Time runTime(args.rootPath(), args.caseName());
 
-
-
     word dictName("gearsGenDict");
-    
+
     // Search for the appropriate blockMesh dictionary....
     fileName dictPath = dictName;
-  
+
     // Check if the dictionary is specified on the command-line
     if (args.optionFound("dict"))
     {
@@ -134,7 +128,6 @@ int main(int argc, char *argv[])
         );
     }
 
-    
     IOdictionary gearsGenDict
     (
         IOobject
@@ -146,6 +139,10 @@ int main(int argc, char *argv[])
             false
         )
     );
+
+
+
+    const gearProfile gear(gearsGenDict);
 
     
     // write points
@@ -160,9 +157,7 @@ int main(int argc, char *argv[])
     fName = "solids";
     OFstream solids(fName);
 
-  
 
-    
     Info<< nl
         << "--------------------------" << nl
         << "Addressing" << endl;
