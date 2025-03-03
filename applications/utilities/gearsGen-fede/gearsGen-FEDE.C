@@ -128,23 +128,23 @@ int main(int argc, char *argv[])
         );
     }
 
-    IOdictionary gearsGenDict
+
+    const gearProfile gear
     (
-        IOobject
+        IOdictionary
         (
-            dictPath,
-            runTime,
-            IOobject::MUST_READ,
-            IOobject::NO_WRITE,
-            false
+            IOobject
+            (
+                dictPath,
+                runTime,
+                IOobject::MUST_READ,
+                IOobject::NO_WRITE,
+                false
+            )
         )
     );
 
 
-
-    const gearProfile gear(gearsGenDict);
-
-    
     // write points
     fileName fName("points");
     OFstream pts(fName);;
